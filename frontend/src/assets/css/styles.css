@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  transition: 0.5s ease-in-out;
+}
+
+.jumbotron {
+  background: linear-gradient(90deg, #00b3ee 0%, #0083b0 100%);
+  color: #fff;
+  padding: 2rem 1rem;
+}
