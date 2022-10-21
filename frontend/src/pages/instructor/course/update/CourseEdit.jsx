@@ -102,7 +102,7 @@ export default function CourseCreate() {
         toast.success(data.message);
         toast.info("Redirecting...");
         setTimeout(() => {
-          navigate("/instructor/courses");
+          navigate(`/instructor/course/view/${values.slug}`);
         }, 2000);
       } else {
         toast.error(data.message);
@@ -118,7 +118,9 @@ export default function CourseCreate() {
       if (apiCall.ok) {
         console.log(data);
         setValues(data.course);
-        setUploadButtonText(data.course.image);
+        setUploadButtonText(
+          data.course.image.length < 1 ? "Upload Image" : data.course.image
+        );
         setImage(data.course.image);
       } else {
         console.log("error");

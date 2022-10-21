@@ -1,7 +1,8 @@
 import { CloseCircleFilled } from "@ant-design/icons";
-import { Button, Progress, Tooltip } from "antd";
+import { Avatar, Button, Progress, Tooltip } from "antd";
 
 import React from "react";
+// import TextEditor from "../General/TextEditor/TextEditor";
 
 export default function AddLessonForm({
   handleAddLesson,
@@ -16,6 +17,14 @@ export default function AddLessonForm({
   return (
     <div>
       <form onSubmit={handleAddLesson}>
+        {progress > 0 && (
+          <Progress
+            percent={progress}
+            size="small"
+            status="active"
+            strokeColor="#1890ff"
+          />
+        )}
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
@@ -31,6 +40,7 @@ export default function AddLessonForm({
         </div>
         <div className="form-group">
           <label htmlFor="content">Content</label>
+          {/* <TextEditor /> */}
           <textarea
             className="form-control"
             cols="7"
@@ -43,35 +53,6 @@ export default function AddLessonForm({
             placeholder="Enter content here"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="video" className="btn btn-secondary w-100 mt-2">
-            {uploadButtonText}
-          </label>
-          {!uploading && values.video !== "" && (
-            <Tooltip title="Click to remove video">
-              <span onClick={handleRemoveVideo} className="pt-1 pl-3">
-                <CloseCircleFilled className="text-danger d-flex justify-content-center pt-4 pointer" />
-              </span>
-            </Tooltip>
-          )}
-
-          <input
-            type="file"
-            accept="video/*"
-            name="video"
-            id="video"
-            hidden
-            onChange={handleVideo}
-          />
-        </div>
-        {progress > 0 && (
-          <Progress
-            percent={progress}
-            size="small"
-            status="active"
-            strokeColor="#1890ff"
-          />
-        )}
       </form>
     </div>
   );

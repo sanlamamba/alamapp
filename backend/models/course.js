@@ -41,8 +41,14 @@ const courseSchema = new Schema(
       ref: "User",
       required: true,
     },
-    // lessons array of lessons
+    // lessons sorted object of lessons
     lessons: [lessonSchema],
+    registered: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     timestamps: true,

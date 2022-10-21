@@ -32,6 +32,17 @@ const userSchema = new Schema(
     stripe_account_id: "",
     strip_seller: {},
     stripeSession: {},
+    course_progress: [
+      {
+        courseId: String,
+        lessons: [
+          {
+            lessonId: String,
+            completed: Boolean,
+          },
+        ],
+      },
+    ],
   },
   {
     timestamps: true,

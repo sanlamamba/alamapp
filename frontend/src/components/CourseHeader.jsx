@@ -9,16 +9,23 @@ const CourseHeader = ({
   handleAddLesson,
   handleCourseEdit,
   handleDeleteCourse,
+  published,
   image,
 }) => (
   <PageHeader
     title={title}
     className="site-page-header"
     subTitle="course"
-    tags={<Tag color="green">Active</Tag>}
+    tags={
+      published ? (
+        <Tag color="green">Active</Tag>
+      ) : (
+        <Tag color="orange">Draft</Tag>
+      )
+    }
     extra={[
       <Button key="3" onClick={handleDeleteCourse}>
-        Delete
+        {published ? "Make Draft" : "Publish"}
       </Button>,
       <Button key="2" onClick={handleCourseEdit}>
         Edit

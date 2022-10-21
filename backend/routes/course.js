@@ -57,12 +57,18 @@ router.post(
   isInstructor,
   courseController.updateCourse
 );
-
 router.post(
-  `/${ENDPOINT}/lesson/:slug`,
+  `/${ENDPOINT}/create-lesson/:slug`,
   requireToken,
   isInstructor,
   courseController.createLesson
 );
+
+// router.post(
+//   `/${ENDPOINT}/lesson/:slug`,
+//   requireToken,
+//   isInstructor,
+//   courseController.createLesson
+// );
 
 module.exports = router;

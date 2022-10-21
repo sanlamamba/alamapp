@@ -14,6 +14,7 @@ import BecomeInstructorRedirect from "./pages/Redirections/BecomeInstructorRedir
 import InstructorIndex from "./pages/instructor/InstructorIndex";
 import CourseView from "./pages/instructor/course/view/CourseView";
 import CourseEdit from "./pages/instructor/course/update/CourseEdit";
+import AddLesson from "./pages/instructor/lesson/AddLesson";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ function App() {
               </InstructorRoute>
             }
           />
+
           <Route
             path="course/update/:slug"
             element={
@@ -74,6 +76,14 @@ function App() {
             element={
               <InstructorRoute>
                 <CourseCreate />
+              </InstructorRoute>
+            }
+          />
+          <Route
+            path="course/update/:slug/lesson/add"
+            element={
+              <InstructorRoute>
+                <AddLesson />
               </InstructorRoute>
             }
           />
